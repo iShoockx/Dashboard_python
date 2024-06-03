@@ -1,0 +1,71 @@
+category,Filmes,Lucro/Custo,Valor em (m$),Imagens,critics score,audience score
+Ant-Man,Ant-Man,Lucro,518,Imagens/ant 1.jpg,83,85
+Ant-Man,Ant-Man & The Wasp,Lucro,623,Imagens/ant 2.jpg,87,80
+Ant-Man,Ant-Man and the Wasp: Quantumania,Lucro,476,Imagens/ant 3.jpg,47,83
+Avengers,The Avengers,Lucro,1515,Imagens/vingadores.jpg,91,91
+Avengers,Avengers: Age of Ultron,Lucro,1395,Imagens/vingadores ultron.jpg,76,82
+Avengers,Avengers: Infinity War,Lucro,2048,Imagens/vingadores gi.jpg,85,91
+Avengers,Avengers: End Game,Lucro,2797,Imagens/vingadores end.jpg,94,90
+Black Panther,Black Panther,Lucro,1336,Imagens/pn 1.jpg,96,79
+Black Panther,Black Panther 2,Lucro,855,Imagens/pn 2.jpg,84,94
+Black Widow,Black Widow,Lucro,379,Imagens/bw.jpg,79,80
+Captain America,Captain America,Lucro,370,Imagens/capitao america 1.jpg,79,75
+Captain America,Captain America: Civil War,Lucro,1151,Imagens/capitao america 2.jpg,90,89
+Captain America,Captain America: Winter Soldier,Lucro,714,Imagens/capitao america 3.jpg,90,92
+Captain Marvel,Captain Marvel,Lucro,1129,Imagens/capita marvel.jpg,79,45
+Dr Strange,Dr Strange,Lucro,676,Imagens/dr.strange.jpg,89,86
+Dr Strange,Dr Strange: Multiverse of Madness,Lucro,952,Imagens/dr.strange 2.jpg,74,77
+Eternals,Eternals,Lucro,402,Imagens/eternos.jpg,47,73
+Guardians,Guardians of the Galaxy,Lucro,770,Imagens/gg 1.jpg,92,92
+Guardians,Guardians of the Galaxy 2,Lucro,869,Imagens/gg 2.jpg,85,87
+Guardians,Guardians of the Galaxy 3,Lucro,845,Imagens/gg 3.jpg,82,95
+Incredible Hulk,Incredible Hulk,Lucro,265,Imagens/hulk.jpg,67,69
+Iron Man,Iron Man,Lucro,585,Imagens/iron man.jpg,94,91
+Iron Man,Iron Man 2,Lucro,621,Imagens/iron man 2.jpg,71,71
+Iron Man,Iron Man 3,Lucro,1215,Imagens/iron man 3.jpg,79,78
+Shang-Chi,Shang-Chi,Lucro,432,Imagens/shang shi.jpg,91,93
+Spider-Man,Spider-Man: Homecoming,Lucro,878,Imagens/homen aranha 1.jpg,92,87
+Spider-Man,Spider-Man: Far from Home,Lucro,1132,Imagens/homen aranha 2.jpg,90,93
+Spider-Man,Spider-Man: No Way Home,Lucro,1911,Imagens/homen aranha 3.jpg,93,96
+Thor,Thor,Lucro,449,Imagens/thor 1.jpg,77,76
+Thor,Thor: Dark World,Lucro,644,Imagens/thor 2.jpg,66,75
+Thor,Thor: Ragnarok,Lucro,850,Imagens/thor 3.jpg,93,87
+Thor,Thor: Love & Thunder,Lucro,745,Imagens/thor 4.jpg,64,63
+The Marvels,The Marvels,Lucro,503,Imagens/the marvels.jpg,57,73
+Deadpool,Deadpool,Lucro,783,Imagens/dp 1.jpg,85,90
+Deadpool,Deadpool 2,Lucro,786,Imagens/dp 2.jpg,84,85
+Ant-Man,Ant-Man,Custo,338,,,
+Ant-Man,Ant-Man & The Wasp,Custo,406,,,
+Ant-Man,Ant-Man and the Wasp: Quantumania,Custo,263,,,
+Avengers,The Avengers,Custo,891,,,
+Avengers,Avengers: Age of Ultron,Custo,936,,,
+Avengers,Avengers: Infinity War,Custo,1369,,,
+Avengers,Avengers: End Game,Custo,1939,,,
+Black Panther,Black Panther,Custo,636,,,
+Black Panther,Black Panther 2,Custo,401,,,
+Black Widow,Black Widow,Custo,196,,,
+Captain America,Captain America,Custo,193,,,
+Captain America,Captain America: Winter Soldier,Custo,454,,,
+Captain America,Captain America: Civil War,Custo,743,,,
+Captain Marvel,Captain Marvel,Custo,702,,,
+Dr Strange,Dr Strange,Custo,443,,,
+Dr Strange,Dr Strange: Multiverse of Madness,Custo,540,,,
+Eternals,Eternals,Custo,237,,,
+Guardians,Guardians of the Galaxy,Custo,437,,,
+Guardians,Guardians of the Galaxy 2,Custo,479,,,
+Guardians,Guardians of the Galaxy 3,Custo,487,,,
+Incredible Hulk,Incredible Hulk,Custo,130,,,
+Iron Man,Iron Man,Custo,266,,,
+Iron Man,Iron Man 2,Custo,308,,,
+Iron Man,Iron Man 3,Custo,806,,,
+Shang-Chi,Shang-Chi,Custo,207,,,
+Spider-Man,Spider-Man: Homecoming,Custo,544,,,
+Spider-Man,Spider-Man: Far from Home,Custo,741,,,
+Spider-Man,Spider-Man: No Way Home,Custo,1097,,,
+Thor,Thor,Custo,268,,,
+Thor,Thor: Dark World,Custo,438,,,
+Thor,Thor: Ragnarok,Custo,535,,,
+Thor,Thor: Love & Thunder,Custo,403,,,
+The Marvels,The Marvels,Custo,288,,,
+Deadpool,Deadpool,Custo,420,,,
+Deadpool,Deadpool 2,Custo,462,,,
