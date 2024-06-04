@@ -1,5 +1,4 @@
 Filmes,category,Ano,Ganho de bilheteria,Lucro,critics score,audience score,audience vs critics % deviance,orçamento,domestic gross ($m),Gasto total ($m),opening weekend,second weekend,1st vs 2nd weekend drop off,gross from opening weekend,gross from domestic,gross from international,budget opening weekend
-,Marvel,,,,,,,
 Ant-Man  ,Ant-Man,2015,518,398%,83%,85%,-2%,130,180,338,57,24,-58%,31.8,34.70%,65.30%,43.80%
 Ant-Man & The Wasp,Ant-Man,2018,623,479%,87%,80%,7%,130,216,406,75.8,29,-62%,35,34.70%,65.20%,58.30%
 Avengers: Age of Ultron,Avengers,2015,1395,382%,76%,82%,-6%,365,459,936,191,77,-60%,41.7,32.90%,67.10%,52.30%
