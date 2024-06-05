@@ -1,3 +1,45 @@
-[data-testid="stImage"]{
-    align-items: center;
+
+#MainMenu,
+.stDeployButton {
+  display: none;
+}
+
+/* Estilizar o metric */
+[data-testid="stMetric"] {
+    border: 2px solid;
+    border-radius: 20px;
+    border-color: #951E22;
+    padding: 10px; 
+    
+    text-align: center;
+  }
+
+/* Personalizar Select box */
+select, .stSelectbox {
+    background-color: #1E2639; 
+    border: 2px solid #000000; 
+    border-radius: 8px; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    color: #000000; 
+  }
+/*Retirar Margem do navegador*/
+[data-testid=stApp]{
+    margin: 0;
+}
+
+.stPlotlyChart {
+    box-shadow: 0px 4px 8px  #393939; 
+  }
+
+#modebar-b6e6af{
+    display: none;
+}
+
+img{
+    box-shadow: 0px 5px 10px  #292929; 
+}
+
+[data-testid=stAppViewBlockContainer]{
+    padding-top: 3rem;
 }

@@ -5,6 +5,7 @@ import plotly.express as px
 import altair as alt 
 
 
+
 #######################
 # Configurações gerais da página
 st.set_page_config(
@@ -12,6 +13,7 @@ st.set_page_config(
     page_icon=":superhero:",
     layout="wide",
     initial_sidebar_state="expanded")
+alt.themes.enable("dark")
 
 #######################
 # Estilização CSS 
@@ -25,7 +27,8 @@ df_marvel_full = pd.read_csv('Data/Marvel Movies.csv')
 df_valores = pd.read_csv('Data/Custo_Lucro.csv')
 # Filtragem de dados
 df_marvel_filme_lucro = df_marvel_full[['Filmes','Ganho de bilheteria','Lucro']]
-df_selected_lucro_sorted = df_marvel_filme_lucro.sort_values(by="Ganho de bilheteria", ascending=False)     
+df_selected_lucro_sorted = df_marvel_filme_lucro.sort_values(by="Ganho de bilheteria", ascending=False)
+
 #######################
 # Sidebar (barra lateral)
 with st.sidebar:
@@ -36,16 +39,12 @@ with st.sidebar:
     df_selected_series = df_valores[df_valores.Filmes == selected_series]
     df_marvel_full_selected = df_marvel_full[df_marvel_full.Filmes == selected_series]
     
-
-
-    color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
-    selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
-
-#Filtragem de dados pos select box
-crit=int(df_selected_series["critics score"].iloc[0])
-aud=int(df_selected_series["audience score"].iloc[0])
-
-
+    
+    category_list = list(df_valores.category.unique())[::-1]
+    
+    selected_color_theme = st.selectbox('Selecione o Tema',category_list )
+    st.write("Joao Vitor Moreira Silva/PDITA:079")
+    
 
 #######################
 # Criando Plots
@@ -56,21 +55,114 @@ aud=int(df_selected_series["audience score"].iloc[0])
 def Format_Milion(num):# Funçao para formatar valor para milhao
     return f'{num} M'
 
-def graph_bar(df_input,input_x,input_y,input_color):# Grafico de Barra
-    graph_comparaçao = px.bar(df_input, x=input_x, y=input_y, color= input_color ,barmode='group',height=350 )
-    return graph_comparaçao 
+def graph_bar(df_input,input_x,input_y,input_color,Color_select):# Grafico de Barra
+    chart_color = escolha_cor(Color_select)
+   
+    fig = px.bar(df_input, x=input_x, y=input_y, color= input_color ,barmode='group',height=350,color_discrete_sequence=chart_color )
+    return fig
+
+def escolha_cor(Cor):#Funçao de definiçao de Cor da Select theme
+    if Cor == 'Deadpool':
+      chart_color = ['#A32633','#60262C']
+    elif Cor == 'Deadpool 2':
+      chart_color = ['#962333','#343339']
+
+    if Cor == 'The Marvels':
+      chart_color = ['#3969CD','#1E376B']
+    elif Cor == 'The Marvels 2':
+      chart_color = ['#FFFC50','#B3B138']    
+    
+    if Cor == 'Thor':
+      chart_color = ['#537DA3','#A0B4BD']
+    elif Cor == "Thor 2" :
+      chart_color = ['#B11F06','#415C5E']
+    
+    if Cor == 'Spider-Man':
+      chart_color = ['#447BBE','#2B3784']
+    elif Cor == 'Spider-Man 2':
+      chart_color = ['#DF1F2D','#B11313']
+    
+    if Cor == 'Iron Man':
+      chart_color = ['#AA0505','#FBCA03']
+    elif Cor == 'Iron Man 2':
+      chart_color = ['#4B0908','#B97D10']
+    
+    if Cor == 'Incredible Hulk':
+      chart_color = ['#A2CD48','#875094']
+    elif Cor == "Incredible Hulk 2":
+       chart_color = ['#875094','#A2CD48']
+    
+    if Cor == 'Guardians':
+      chart_color = ['#FDFAC3','#AB7D41']
+    elif Cor == 'Guardians 2':
+      chart_color = ['#529EE9','#13286B']
+    
+    if Cor == "Shang-Chi":
+      chart_color = ['#FF7A36','#05B1C5']
+    elif Cor == "Shang-Chi 2":
+       chart_color = ["#05B1C5","#FF7A36"]
+    
+    if Cor == 'Eternals':
+      chart_color = ['#035AA6','#211159']
+    elif Cor == 'Eternals 2':
+      chart_color = ['#98A632','#BF871F']
+      
+    if Cor == 'Dr Strange':
+      chart_color = ['#2FD93B','#03223F']
+    elif Cor == 'Dr Strange 2':
+      chart_color = ['#FF6312','#691821']
+      
+    if Cor == 'Captain Marvel':
+      chart_color = ['#1C2351','#9E1C21']
+    elif Cor == 'Captain Marvel 2':
+      chart_color = ['#EACF40','#E9AE2C']
+    
+    if Cor == 'Black Widow':
+      chart_color = ['#1C1C1C','#ff0000']
+    elif Cor == 'Black Widow 2':
+      chart_color = ['#ff0000','#1C1C1C']
+      
+    if Cor == 'Black Panther':
+      chart_color = ['#1A0554','#C4A8FF']
+    elif Cor == 'Black Panther 2':
+      chart_color = ['#C4A8FF','#664EAE']
+      
+    if Cor == 'Avengers':
+      chart_color = ['#a50000','#3268bd']
+    elif Cor == 'Avengers 2':
+      chart_color = ['#3268bd','#999999']
+    
+    if Cor == 'Avengers: Age of Ultron':
+      chart_color = ['#C72523','#4D1518']
+    elif Cor == 'Avengers: Age of Ultron 2':
+      chart_color = ['#4D8AB5','#1E2639']
+      
+    if Cor == 'Avengers: Infinity War':
+      chart_color = ['#924F9E','#626EDA']
+    elif Cor == 'Avengers: Infinity War 2':
+      chart_color = ['#D93D27','#361A29']
+
+    if Cor == 'Avengers: End Game':
+      chart_color = ['#7B6FDE','#453AA4']
+    elif Cor == 'Avengers: End Game 2':
+      chart_color = ['#1A1A64','#0B0930']
+
+    if Cor == 'Captain America':
+      chart_color = ['#1849CA','#EC2004']
+    elif Cor == 'Captain America 2':
+      chart_color = ['#C31D10','#162CA2']
+
+    if Cor == 'Ant-Man':
+      chart_color = ['#D30026','#9D152C']
+    if Cor == 'Ant-Man 2':
+      chart_color = ['#868A93','#5E6674']
+    
+    return chart_color
+
 
 def make_donut(input_response, input_text, input_color):#Grafico de donut
-  int(input_response)
   # Escolha de cores
-  if input_color == 'blue':
-      chart_color = ['#29b5e8', '#155F7A']
-  if input_color == 'green':
-      chart_color = ['#27AE60', '#12783D']
-  if input_color == 'orange':
-      chart_color = ['#F39C12', '#875A12']
-  if input_color == 'red':
-      chart_color = ['#E74C3C', '#781F16']
+  chart_color = escolha_cor(input_color)
     # Criaçao da lista utilizada para o grafico
   source = pd.DataFrame({
       "Topic": ['', input_text],
@@ -92,14 +184,14 @@ def make_donut(input_response, input_text, input_color):#Grafico de donut
                       legend=None),
   ).properties(width=130, height=130)
     # Formataçao do Texto do Grafico
-  text = plot.mark_text(align='center', color="#29b5e8", font="Lato", fontSize=32, fontWeight=700, fontStyle="italic").encode(text=alt.value(f'{input_response} %'))
+  text = plot.mark_text(align='center', color="#29b5e8", font="sans serif", fontSize=32, fontWeight=700, fontStyle="italic").encode(text=alt.value(f'{input_response} %'))
   plot_bg = alt.Chart(source_bg).mark_arc(innerRadius=45, cornerRadius=20).encode(
       theta="% value",
       color= alt.Color("Topic:N",
                       scale=alt.Scale(
                           # domain=['A', 'B'],
                           domain=[input_text, ''],
-                          range=chart_color),  # 31333F
+                          range=chart_color),  # select color theme
                       legend=None),
   ).properties(width=130, height=130)
   return plot_bg + plot + text
@@ -110,19 +202,20 @@ def make_donut(input_response, input_text, input_color):#Grafico de donut
 # principal do dashboard 
 
 # criando colunas e suas larguras
-col = st.columns((2.5, 2.5 ,3), gap='large')
+col = st.columns((2.5, 2.5 ,3), gap='medium')
+
 # Primeira coluna
 with col[0]:
 
     # Metricas
-    st.markdown("#### 1ª vs 2ª Semana")
+    st.markdown("#### 1ª :crossed_swords: 2ª Semana")
     st.metric(label="Semana de abertura", value=Format_Milion(df_marvel_full_selected['opening weekend'].iloc[0]))
     st.metric(label="Segunda Semana", value=Format_Milion(df_marvel_full_selected["second weekend"].iloc[0]), 
         delta=df_marvel_full_selected['1st vs 2nd weekend drop off'].iloc[0])
     
     # Grafico de Barras
     st.markdown('#### Lucro/Custo')
-    Graph = graph_bar(df_selected_series,"Filmes","Valor em (m$)","Lucro/Custo")# Chamada do plot de Grafico de Barra
+    Graph = graph_bar(df_selected_series,"Filmes","Valor em (m$)","Lucro/Custo",selected_color_theme)# Chamada do plot de Grafico de Barra
     st.plotly_chart(Graph, use_container_width=True)
 
 # Segunda Coluna 
@@ -136,8 +229,9 @@ with col[1]:
 
     # Grafico de donut
     st.markdown('#### Notas')
-    aud = make_donut(aud,"críticos","blue")
-    crit = make_donut(crit,"audiência","orange")
+    aud = make_donut(int(df_selected_series["critics score"].iloc[0]),"críticos",selected_color_theme)
+    
+    crit = make_donut(int(df_selected_series["audience score"].iloc[0]),"audiência",f'{selected_color_theme} 2')
     cols1 = st.columns((5, 5))
     with cols1[0]:
         st.write('Audiência')

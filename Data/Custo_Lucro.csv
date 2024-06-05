@@ -1,11 +1,12 @@
 category,Filmes,Lucro/Custo,Valor em (m$),Imagens,critics score,audience score
+,Marvel
 Ant-Man,Ant-Man,Lucro,518,Imagens/ant 1.jpg,83,85
 Ant-Man,Ant-Man & The Wasp,Lucro,623,Imagens/ant 2.jpg,87,80
 Ant-Man,Ant-Man and the Wasp: Quantumania,Lucro,476,Imagens/ant 3.jpg,47,83
 Avengers,The Avengers,Lucro,1515,Imagens/vingadores.jpg,91,91
-Avengers,Avengers: Age of Ultron,Lucro,1395,Imagens/vingadores ultron.jpg,76,82
-Avengers,Avengers: Infinity War,Lucro,2048,Imagens/vingadores gi.jpg,85,91
-Avengers,Avengers: End Game,Lucro,2797,Imagens/vingadores end.jpg,94,90
+Avengers: Age of Ultron,Avengers: Age of Ultron,Lucro,1395,Imagens/vingadores ultron.jpg,76,82
+Avengers: Infinity War,Avengers: Infinity War,Lucro,2048,Imagens/vingadores gi.jpg,85,91
+Avengers: End Game,Avengers: End Game,Lucro,2797,Imagens/vingadores end.jpg,94,90
 Black Panther,Black Panther,Lucro,1336,Imagens/pn 1.jpg,96,79
 Black Panther,Black Panther 2,Lucro,855,Imagens/pn 2.jpg,84,94
 Black Widow,Black Widow,Lucro,379,Imagens/bw.jpg,79,80
@@ -38,9 +39,9 @@ Ant-Man,Ant-Man,Custo,338,,,
 Ant-Man,Ant-Man & The Wasp,Custo,406,,,
 Ant-Man,Ant-Man and the Wasp: Quantumania,Custo,263,,,
 Avengers,The Avengers,Custo,891,,,
-Avengers,Avengers: Age of Ultron,Custo,936,,,
-Avengers,Avengers: Infinity War,Custo,1369,,,
-Avengers,Avengers: End Game,Custo,1939,,,
+Avengers: Age of Ultron,Avengers: Age of Ultron,Custo,936,,,
+Avengers: Infinity War,Avengers: Infinity War,Custo,1369,,,
+Avengers: End Game,Avengers: End Game,Custo,1939,,,
 Black Panther,Black Panther,Custo,636,,,
 Black Panther,Black Panther 2,Custo,401,,,
 Black Widow,Black Widow,Custo,196,,,
