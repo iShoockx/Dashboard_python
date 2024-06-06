@@ -34,8 +34,8 @@ Caso deseje saber mais sobre os meus Projetos <br>
 >
 
 ### Referências
-Este painel foi criado seguindo o tutorial do Asimov Academy: [É o fim do Power BI? Criando Dashboard com Python em 15 minutos](https://youtu.be/P6E_Kts9pxE?si=6ZU2ilvVCR-Af_mW)
-[Documentaçao do Strealit](https://docs.streamlit.io/)
-[Documentaçao de Grafico do Plotly](https://plotly.com/python/)
-[Documentaçao do Pandas](https://pandas.pydata.org/docs/)
+Este painel foi criado seguindo o tutorial do Asimov Academy: [É o fim do Power BI? Criando Dashboard com Python em 15 minutos](https://youtu.be/P6E_Kts9pxE?si=6ZU2ilvVCR-Af_mW)/
+[Documentaçao do Strealit](https://docs.streamlit.io/)/
+[Documentaçao de Grafico do Plotly](https://plotly.com/python/)/
+[Documentaçao do Pandas](https://pandas.pydata.org/docs/)/
 [Introdução ao Pandas no Python - [SAIA DO ZERO EM 1 AULA]](https://www.youtube.com/watch?v=C0aj3FjN5e0&t=1396s)
