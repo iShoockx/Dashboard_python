@@ -5,7 +5,6 @@ import plotly.express as px
 import altair as alt 
 
 
-
 #######################
 # Configurações gerais da página
 st.set_page_config(
@@ -28,7 +27,7 @@ df_valores = pd.read_csv('Data/Custo_Lucro.csv')
 # Filtragem de dados
 df_marvel_filme_lucro = df_marvel_full[['Filmes','Ganho de bilheteria','Lucro']]
 df_selected_lucro_sorted = df_marvel_filme_lucro.sort_values(by="Ganho de bilheteria", ascending=False)
-
+df_sort_lucro = df_marvel_full[['Filmes','Lucro','Ano']].sort_values(by="Lucro", ascending=True)
 #######################
 # Sidebar (barra lateral)
 with st.sidebar:
@@ -55,10 +54,10 @@ with st.sidebar:
 def Format_Milion(num):# Funçao para formatar valor para milhao
     return f'{num} M'
 
-def graph_bar(df_input,input_x,input_y,input_color,Color_select):# Grafico de Barra
+def graph_bar(df_input,input_x,input_y,input_color,Color_select,input_barmode):# Grafico de Barra
     chart_color = escolha_cor(Color_select)
    
-    fig = px.bar(df_input, x=input_x, y=input_y, color= input_color ,barmode='group',height=350,color_discrete_sequence=chart_color )
+    fig = px.bar(df_input, x=input_x, y=input_y, color= input_color ,barmode=input_barmode,height=500,color_discrete_sequence=chart_color )
     return fig
 
 def escolha_cor(Cor):#Funçao de definiçao de Cor da Select theme
@@ -203,9 +202,60 @@ def make_donut(input_response, input_text, input_color):#Grafico de donut
 
 # criando colunas e suas larguras
 col = st.columns((2.5, 2.5 ,3), gap='medium')
-
+cols1 = st.columns((5, 5))
+cols2 = st.columns((1,8,1))
 # Primeira coluna
-with col[0]:
+if selected_series == "Marvel":
+  cols3 = st.columns((1,1))
+   #Criando Colunas
+  with cols3[0]:
+      chart_color = escolha_cor(selected_color_theme)#Secect Color
+      #Organizaçao de Dados
+      media_open = round(df_marvel_full['opening weekend'].mean())
+      media_sec = round(df_marvel_full['second weekend'].mean())
+      media_diference = round((media_sec/media_open)*100)-100
+      st.markdown("#### Media 1ª :crossed_swords: 2ª Semana")
+      # Metrics
+      st.metric(label="Semana de abertura", value=Format_Milion(media_open))
+      st.metric(label="Semana de abertura", value=Format_Milion(media_sec), delta=f'{media_diference} %')
+      
+      #
+      st.markdown('#### Audiencia e Critica dos filmes')
+      #Dicionario para organizaçao de dados
+      scatter = {
+        "x":[df_marvel_full["critics score"],df_marvel_full["Filmes"]],
+        "y":[df_marvel_full["audience score"],df_marvel_full["Filmes"]]
+      }
+      #Grafico Scatter
+      fig = px.scatter(df_marvel_full, x=df_marvel_full["critics score"],y=df_marvel_full["audience score"],color=df_marvel_full["Filmes"] ,color_discrete_sequence=chart_color)
+      st.plotly_chart(fig, use_container_width=True)
+  with cols3[1]:
+      #Data Frame
+      st.markdown('#### Lucro Geral')
+      st.dataframe (df_selected_lucro_sorted, 
+                  column_order=("Filmes", "Ganho de bilheteria","Lucro"),
+                  hide_index=True,
+                  width=None,
+                  column_config={
+                    "Ganho de bilheteria": st.column_config.TextColumn(
+                        "Bilheteria (M)",
+                    )})
+        
+      
+      #Grafico Donut
+      st.markdown("Media")
+      aud2 = make_donut(int(df_valores["critics score"].mean()),"críticos",selected_color_theme)
+      crit2 = make_donut(int(df_valores["audience score"].mean()),"audiência",f'{selected_color_theme} 2')
+      cols4= st.columns((2,4,4))
+      with cols4[1]:
+          st.write('Audiência')
+          st.altair_chart(aud2)
+      with cols4[2]:   
+          st.write('Críticos')
+          st.altair_chart(crit2)
+    
+else:
+  with col[0]:
 
     # Metricas
     st.markdown("#### 1ª :crossed_swords: 2ª Semana")
@@ -215,35 +265,36 @@ with col[0]:
     
     # Grafico de Barras
     st.markdown('#### Lucro/Custo')
-    Graph = graph_bar(df_selected_series,"Filmes","Valor em (m$)","Lucro/Custo",selected_color_theme)# Chamada do plot de Grafico de Barra
+    Graph = graph_bar(df_selected_series,"Filmes","Valor em (m$)","Lucro/Custo",selected_color_theme,"group")# Chamada do plot de Grafico de Barra
     st.plotly_chart(Graph, use_container_width=True)
+  
 
 # Segunda Coluna 
 
-with col[1]:
-    st.markdown("#### Filme")
-    cols2 = st.columns((1,8,1))
-    with cols2[1]:
+  with col[1]:
+      st.markdown("#### Filme")
+      cols2 = st.columns((1,8,1))
+      with cols2[1]:
         # Imagem Banner
-        st.image(df_selected_series['Imagens'].values[0], width=200, output_format='JPEG')
+          st.image(df_selected_series['Imagens'].values[0], width=200, output_format='JPEG')
 
     # Grafico de donut
-    st.markdown('#### Notas')
-    aud = make_donut(int(df_selected_series["critics score"].iloc[0]),"críticos",selected_color_theme)
+      st.markdown('#### Notas')
+      aud = make_donut(int(df_selected_series["critics score"].iloc[0]),"críticos",selected_color_theme)
     
-    crit = make_donut(int(df_selected_series["audience score"].iloc[0]),"audiência",f'{selected_color_theme} 2')
-    cols1 = st.columns((5, 5))
-    with cols1[0]:
-        st.write('Audiência')
-        st.altair_chart(aud)
-    with cols1[1]:   
-        st.write('Críticos')
-        st.altair_chart(crit)
+      crit = make_donut(int(df_selected_series["audience score"].iloc[0]),"audiência",f'{selected_color_theme} 2')
+      cols1 = st.columns((5, 5))
+      with cols1[0]:
+          st.write('Audiência')
+          st.altair_chart(aud)
+      with cols1[1]:   
+          st.write('Críticos')
+          st.altair_chart(crit)
 
-with col[2]:
+  with col[2]:
     # Data frame de Lucro Geral
-    st.markdown('#### Lucro Geral')
-    st.dataframe (df_selected_lucro_sorted, 
+      st.markdown('#### Lucro Geral')
+      st.dataframe (df_selected_lucro_sorted, 
                   column_order=("Filmes", "Ganho de bilheteria","Lucro"),
                   hide_index=True,
                   width=None,
@@ -252,7 +303,7 @@ with col[2]:
                         "Bilheteria (M)",
                     )})
     # Sobre
-    with st.expander('Sobre', expanded=True):
+  with st.expander('Sobre', expanded=True):
         st.write('''
             - Data: [MARVEL Movies - Box Office Data](https://github.com/iShoockx/Dashboard_python/tree/main/Data).
             - :orange[**Lucro/Custo**]: O grafico Mostra o Valor que foi gasto para realizar o filme e quando arrecadou de volta .

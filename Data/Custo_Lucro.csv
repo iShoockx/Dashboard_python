@@ -1,5 +1,4 @@
 category,Filmes,Lucro/Custo,Valor em (m$),Imagens,critics score,audience score
-,Marvel
 Ant-Man,Ant-Man,Lucro,518,Imagens/ant 1.jpg,83,85
 Ant-Man,Ant-Man & The Wasp,Lucro,623,Imagens/ant 2.jpg,87,80
 Ant-Man,Ant-Man and the Wasp: Quantumania,Lucro,476,Imagens/ant 3.jpg,47,83
@@ -70,3 +69,4 @@ Thor,Thor: Love & Thunder,Custo,403,,,
 The Marvels,The Marvels,Custo,288,,,
 Deadpool,Deadpool,Custo,420,,,
 Deadpool,Deadpool 2,Custo,462,,,
+Avengers,Marvel,
